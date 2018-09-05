@@ -46,3 +46,31 @@ app.use((err, req, res, next) => {
 const listener = app.listen(process.env.PORT || 3000, () => {
   console.log('Your app is listening on port ' + listener.address().port)
 })
+
+/* Needs to include the following things:
+  - User supplies a POST with unique username. If unique, provide the _id back to the user. User is saved to MongoDB.
+  - The _id from previous step can be used with information to log exercise via POST. This information is saved to MongoDB.
+  - User can GET all records for their username, with optional from, to and limit.
+
+  Log requirements
+  ----------------
+
+  - Each user has an _id and username on creation. 
+  - We create an empty log and initialise count at 0.
+  - When adding exercise we append the Object with description etc. to the log
+    ~ If no date is provided, use today's date. 
+
+  Example log:
+  {
+    "_id":"r15utrTvQ",
+    "username":"jonnybgoode2",
+    "count":1,
+    "log":[
+      {
+        "description":"running",
+        "duration":7,
+        "date":"Wed Sep 05 2018"
+      }
+    ]
+  }
+  */
